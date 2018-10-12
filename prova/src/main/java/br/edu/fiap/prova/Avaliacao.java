@@ -5,18 +5,37 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jws.WebService;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import br.edu.fiap.prova.common.Questao;
 
 @Stateless
 @WebService
-public class Avaliacao  {
-
+public class Avaliacao implements QuestaoBeanRemote {
+	
+	@PersistenceContext(unitName="Chamado")
+	private EntityManager em; 
 	@Inject
 	QuestaoDAO dao;
+
+	@Override
+	public void add(Questao questao) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Questao> getAll(){
+	 TypedQuery<Questao> query = em.createQuery("select u from Questao u",
+			 Questao.class);
+	 return query.getResultList();
+	 } 
+
 	
     
-	public List<Questao> getQuestao() {
+	/*public List<Questao> getQuestao() {
 		
 		//System.out.println("questao : " );
 		
@@ -34,6 +53,9 @@ public class Avaliacao  {
 			e.printStackTrace();
 		}
 	
-				 return questaoLista; 
+				 return questaoLista; */
+		
+		
+		
 	}
-}
+//}

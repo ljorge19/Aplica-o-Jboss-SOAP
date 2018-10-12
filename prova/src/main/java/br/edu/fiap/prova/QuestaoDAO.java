@@ -3,6 +3,7 @@ package br.edu.fiap.prova;
 
 import java.util.List;
 
+import javax.ejb.Remote;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.swing.JOptionPane;
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
 import br.edu.fiap.prova.common.Questao;
 
 
-
+@Remote
 public class QuestaoDAO {
 	private EntityManager em;
 
