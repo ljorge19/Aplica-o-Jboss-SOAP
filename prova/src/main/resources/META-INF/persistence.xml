@@ -6,7 +6,7 @@
 	version="1.0">
 
 	<persistence-unit name="Chamado">
-		<jta-data-source>java:/jdbc/prova</jta-data-source>
+		<jta-data-source>java:prova</jta-data-source>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.showsql" value="true" />
